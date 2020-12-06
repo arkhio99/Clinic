@@ -1,0 +1,868 @@
+{
+  "paper": {
+    "name": "A4",
+    "leftMargin": 0.5,
+    "rightMargin": 0.5,
+    "topMargin": 0.5,
+    "bottomMargin": 0.5,
+    "isPortriat": true
+  },
+  "modelVersion": 2.01,
+  "defaultSchema": "Default",
+  "server": {
+    "objectType": "Server_LOGICAL",
+    "name": "Default",
+    "schemas": [
+      {
+        "objectType": "Schema_LOGICAL",
+        "name": "Default",
+        "tables": [
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "Пользователь",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID пользователя",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID пользователя"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ФИО",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ФИО"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "Дата рождения",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "Дата рождения"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "Документы, удостоверяющие личность",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "Документы, удостоверяющие личность"
+              }
+            ],
+            "foreignKeys": [],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "ID пользователя"
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "Чек",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID чека",
+                "type": "uuid",
+                "length": 36,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID чека"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID записи",
+                "type": "uuid",
+                "length": 36,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID записи"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "Сумма",
+                "type": "NUMERIC",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "Сумма"
+              }
+            ],
+            "foreignKeys": [],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "ID чека"
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "Клиника",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID клиники",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID клиники"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "Адрес клиники",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "Адрес клиники"
+              }
+            ],
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_Клиника_Услуга_1",
+                "fields": [
+                  "ID клиники"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Услуга",
+                "referencedFields": [
+                  "ID клиники"
+                ],
+                "sourceCardinality": "OneOrManyRelationship",
+                "targetCardinality": "OneOrManyRelationship",
+                "comment": "",
+                "oldName": ""
+              }
+            ],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "ID клиники"
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "Дата приёма",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID клиники",
+                "type": "CHAR VARYING",
+                "length": 36,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID клиники"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID услуги",
+                "type": "CHAR VARYING",
+                "length": 36,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID услуги"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "Дата",
+                "type": "DATE",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "Дата"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "Сумма",
+                "type": "NUMERIC",
+                "length": 0,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "Сумма"
+              }
+            ],
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_Дата приёма_Запись_1",
+                "fields": [
+                  "ID клиники",
+                  "ID услуги",
+                  "Дата"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Запись",
+                "referencedFields": [
+                  "ID клиники",
+                  "ID услуги",
+                  "Дата"
+                ],
+                "sourceCardinality": "OneAndOnlyOneRelationship",
+                "targetCardinality": "ZeroOrManyRelationship",
+                "comment": "",
+                "oldName": ""
+              },
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_Дата приёма_Чек_1",
+                "fields": [
+                  "Сумма"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Чек",
+                "referencedFields": [
+                  "Сумма"
+                ],
+                "sourceCardinality": "OneAndOnlyOneRelationship",
+                "targetCardinality": "ZeroOrManyRelationship",
+                "comment": "",
+                "oldName": ""
+              }
+            ],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "ID клиники",
+                "ID услуги",
+                "Дата"
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "Услуга",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID услуги",
+                "type": "CHAR VARYING",
+                "length": 36,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID услуги"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID клиники",
+                "type": "CHAR VARYING",
+                "length": 36,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID клиники"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "Название услуги",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "Название услуги"
+              }
+            ],
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_Услуга_Дата приёма_1",
+                "fields": [
+                  "ID услуги",
+                  "ID клиники"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Дата приёма",
+                "referencedFields": [
+                  "ID услуги",
+                  "ID клиники"
+                ],
+                "sourceCardinality": "OneAndOnlyOneRelationship",
+                "targetCardinality": "ZeroOrManyRelationship",
+                "comment": "",
+                "oldName": ""
+              }
+            ],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "ID услуги",
+                "ID клиники"
+              ],
+              "oldName": ""
+            }
+          },
+          {
+            "objectType": "Table_LOGICAL",
+            "name": "Запись",
+            "comment": "",
+            "oldName": "",
+            "fields": [
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID записи",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID записи"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID пользователя",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID пользователя"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID клиники",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID клиники"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "ID услуги",
+                "type": "CHAR VARYING",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "ID услуги"
+              },
+              {
+                "objectType": "TableField_LOGICAL",
+                "name": "Дата",
+                "type": "TIMESTAMP",
+                "length": 255,
+                "decimals": 0,
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "comment": "",
+                "oldName": "Дата"
+              }
+            ],
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_Запись_Запись_1",
+                "fields": [
+                  "ID пользователя"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Пользователь",
+                "referencedFields": [
+                  "ID пользователя"
+                ],
+                "sourceCardinality": "ZeroOrManyRelationship",
+                "targetCardinality": "OneAndOnlyOneRelationship",
+                "comment": "",
+                "oldName": ""
+              },
+              {
+                "objectType": "ForeignKey_LOGICAL",
+                "name": "fk_Запись_Чек_1",
+                "fields": [
+                  "ID записи"
+                ],
+                "referencedSchema": "Default",
+                "referencedTable": "Чек",
+                "referencedFields": [
+                  "ID записи"
+                ],
+                "sourceCardinality": "OneAndOnlyOneRelationship",
+                "targetCardinality": "ZeroOrManyRelationship",
+                "comment": "",
+                "oldName": ""
+              }
+            ],
+            "indexes": [],
+            "uniques": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_LOGICAL",
+              "name": "",
+              "fields": [
+                "ID записи"
+              ],
+              "oldName": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "diagrams": [
+    {
+      "name": "Diagram 1",
+      "paperWidth": 1,
+      "paperHeight": 1,
+      "tableFont": "Arial Unicode MS",
+      "tableFontSize": 14,
+      "isBalckWhite": false,
+      "showDBSchemaName": false,
+      "showViewRelations": true,
+      "notation": "crowsfoot",
+      "showFieldComment": false,
+      "showTableComment": false,
+      "shapes": [
+        {
+          "type": "table",
+          "schemaName": "Default",
+          "tableName": "Запись",
+          "x": 440,
+          "y": 230,
+          "width": 150,
+          "height": 140,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "Default",
+          "tableName": "Пользователь",
+          "x": 680,
+          "y": 150,
+          "width": 250,
+          "height": 130,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "Default",
+          "tableName": "Услуга",
+          "x": 840,
+          "y": 310,
+          "width": 150,
+          "height": 110,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "Default",
+          "tableName": "Клиника",
+          "x": 1030,
+          "y": 270,
+          "width": 150,
+          "height": 200,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "Default",
+          "tableName": "Чек",
+          "x": 180,
+          "y": 320,
+          "width": 200,
+          "height": 200,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        },
+        {
+          "type": "table",
+          "schemaName": "Default",
+          "tableName": "Дата приёма",
+          "x": 640,
+          "y": 360,
+          "width": 150,
+          "height": 200,
+          "isBold": false,
+          "titleColor": {
+            "r": 55,
+            "g": 131,
+            "b": 192,
+            "a": 1
+          }
+        }
+      ],
+      "layers": [],
+      "relations": [
+        {
+          "name": "fk_Запись_Запись_1",
+          "sourceTableName": "Запись",
+          "sourceSchemaName": "Default",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 605,
+              "y": 290
+            },
+            {
+              "x": 650,
+              "y": 290
+            },
+            {
+              "x": 650,
+              "y": 190
+            },
+            {
+              "x": 665,
+              "y": 190
+            }
+          ],
+          "label": {
+            "x": 595,
+            "y": 252,
+            "width": 136,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "fk_Услуга_Дата приёма_1",
+          "sourceTableName": "Услуга",
+          "sourceSchemaName": "Default",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 825,
+              "y": 360
+            },
+            {
+              "x": 820,
+              "y": 360
+            },
+            {
+              "x": 820,
+              "y": 420
+            },
+            {
+              "x": 805,
+              "y": 420
+            }
+          ],
+          "label": {
+            "x": 665,
+            "y": 322,
+            "width": 170,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "fk_Дата приёма_Запись_1",
+          "sourceTableName": "Дата приёма",
+          "sourceSchemaName": "Default",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 625,
+              "y": 400
+            },
+            {
+              "x": 620,
+              "y": 400
+            },
+            {
+              "x": 620,
+              "y": 330
+            },
+            {
+              "x": 605,
+              "y": 330
+            }
+          ],
+          "label": {
+            "x": 461,
+            "y": 362,
+            "width": 174,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "fk_Клиника_Услуга_1",
+          "sourceTableName": "Клиника",
+          "sourceSchemaName": "Default",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 1015,
+              "y": 310
+            },
+            {
+              "x": 1010,
+              "y": 310
+            },
+            {
+              "x": 1010,
+              "y": 370
+            },
+            {
+              "x": 1005,
+              "y": 370
+            }
+          ],
+          "label": {
+            "x": 923,
+            "y": 312,
+            "width": 140,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "fk_Запись_Чек_1",
+          "sourceTableName": "Запись",
+          "sourceSchemaName": "Default",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 425,
+              "y": 280
+            },
+            {
+              "x": 410,
+              "y": 280
+            },
+            {
+              "x": 410,
+              "y": 380
+            },
+            {
+              "x": 395,
+              "y": 380
+            }
+          ],
+          "label": {
+            "x": 321,
+            "y": 242,
+            "width": 114,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        },
+        {
+          "name": "fk_Дата приёма_Чек_1",
+          "sourceTableName": "Дата приёма",
+          "sourceSchemaName": "Default",
+          "lineWidth": 1,
+          "visible": true,
+          "vertices": [
+            {
+              "x": 625,
+              "y": 470
+            },
+            {
+              "x": 510,
+              "y": 470
+            },
+            {
+              "x": 510,
+              "y": 410
+            },
+            {
+              "x": 395,
+              "y": 410
+            }
+          ],
+          "label": {
+            "x": 483,
+            "y": 432,
+            "width": 152,
+            "height": 30,
+            "fontName": "Arial Unicode MS",
+            "fontSize": 14,
+            "fontColor": {
+              "r": 51,
+              "g": 51,
+              "b": 51,
+              "a": 1
+            },
+            "isFontBold": false,
+            "isFontItalic": false,
+            "isVisible": false
+          }
+        }
+      ],
+      "viewRelations": []
+    }
+  ]
+}
